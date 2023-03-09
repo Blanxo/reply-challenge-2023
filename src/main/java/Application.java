@@ -1,9 +1,9 @@
 package main.java;
 
-import main.java.model.Component;
-import main.java.model.Game;
-import main.java.model.Matrix;
+import main.java.algo.Solution;
+import main.java.model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -13,7 +13,11 @@ public class Application {
         Game game = new Game(Integer.parseInt(gameData[0]), Integer.parseInt(gameData[1]), Integer.parseInt(gameData[2]));
         System.out.println(game);
         file.remove(0);
-        // TODO Snake logic
+        List<Snake> snakes = new ArrayList<>();
+        for(String snakeSize : file.get(0).split(" ")) {
+            Snake snake = new Snake(Integer.parseInt(snakeSize));
+            snakes.add(snake);
+        }
         file.remove(0);
         // Skip the first 2 rows
         Component[][] components = new Component[game.rows][game.columns];
@@ -34,17 +38,16 @@ public class Application {
                 components[i][j] = component;
             }
         }
-        for (Component[] component : components) {
+        /*for (Component[] component : components) {
             for (Component row : component) {
                 System.out.print(row + " ");
             }
             System.out.println("\n");
-        }
-
+        }*/
+        System.out.println(snakes);
         // Research algo
-
-
-
+        Solution solution = new Solution(components);
+        System.out.println(solution.findHighestPath());
 
     }
 

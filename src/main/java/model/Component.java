@@ -1,6 +1,6 @@
 package main.java.model;
 
-public class Component {
+public class Component implements Comparable{
     public int relevance;
     public boolean isWormhole;
     public boolean hasSnake;
@@ -17,6 +17,42 @@ public class Component {
     public Component() {
     }
 
+    public int getRelevance() {
+        return relevance;
+    }
+
+    public void setRelevance(int relevance) {
+        this.relevance = relevance;
+    }
+
+    public void setWormhole(boolean wormhole) {
+        isWormhole = wormhole;
+    }
+
+    public boolean isHasSnake() {
+        return hasSnake;
+    }
+
+    public void setHasSnake(boolean hasSnake) {
+        this.hasSnake = hasSnake;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     @Override
     public String toString() {
         return isWormhole() + "{" +
@@ -28,5 +64,12 @@ public class Component {
 
     public String isWormhole() {
         return isWormhole ? "Wormhole" : "Cell";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Component comparing = (Component) o;
+        if(null == o) return -1;
+        return comparing.relevance - this.relevance;
     }
 }

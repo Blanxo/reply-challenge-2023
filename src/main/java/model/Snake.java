@@ -1,11 +1,9 @@
 package main.java.model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Snake {
-    List<Component> components;
     List<Move> moves;
     public int size;
     public int startingX;
@@ -16,5 +14,18 @@ public class Snake {
         this.startingX = startingX;
         this.startingY = startingY;
         this.moves = new ArrayList<>();
+    }
+
+    public Snake(int size) {
+        this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "Snake{" +
+                "size=" + size +
+                ", startingX=" + startingX +
+                ", startingY=" + startingY +
+                '}';
     }
 }
