@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.algo.Path;
 import main.java.algo.Solution;
 import main.java.model.*;
 
@@ -47,8 +48,31 @@ public class Application {
         System.out.println(snakes);
         // Research algo
         Solution solution = new Solution(components);
-        System.out.println(solution.findHighestPath());
-
+        Path path = solution.findHighestPath(6);
+        for(Component pathComponent : path.components) {
+            pathComponent.setHasSnake(true);
+        }
+        System.out.println(path);
+        path = solution.findHighestPath(7);
+        for(Component pathComponent : path.components) {
+            pathComponent.setHasSnake(true);
+        }
+        System.out.println(path);
+        path = solution.findHighestPath(5);
+        for(Component pathComponent : path.components) {
+            pathComponent.setHasSnake(true);
+        }
+        System.out.println(path);
+        path = solution.findHighestPath(3);
+        for(Component pathComponent : path.components) {
+            pathComponent.setHasSnake(true);
+        }
+        System.out.println(path);
+        path = solution.findHighestPath(3);
+        for(Component pathComponent : path.components) {
+            pathComponent.setHasSnake(true);
+        }
+        System.out.println(path);
     }
 
 
